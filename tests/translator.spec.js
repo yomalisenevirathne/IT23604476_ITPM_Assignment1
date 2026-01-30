@@ -52,22 +52,22 @@ test.describe.serial('Swift Translator Suite - Human Readable Speed', () => {
             const outputArea = page.locator('textarea').last();
             const clearBtn = page.locator('button:has-text("Clear")');
 
-            // 1. කලින් දත්ත මකා දමන්න
+            // 1. kalin data erase 
             await clearBtn.click();
             await page.waitForTimeout(300);
 
-            // 2. අකුරෙන් අකුර ටයිප් කරන්න (ටිකක් වේගය අඩු කළා - 40ms delay)
+            // 2. type (speed - 40ms delay)
             await inputArea.pressSequentially(data.input, { delay: 40 });
 
-            // 3. පරිවර්තනය වීමට තත්පර 1ක් රැඳී සිටීම
+            // 3. 1sec wait wela innawa traslate karanna
             await page.waitForTimeout(1000);
 
-            // 4. Output එක එනකම් බලා සිටී
+            // 4. Output eka enakan blan innawa
             await expect(outputArea).not.toHaveValue('', { timeout: 15000 });
 
-            // --- ඔයාට බලාගන්න එකතු කරපු විශේෂ කොටස ---
+            
             console.log(`✅ [${data.id}] Done.`);
-            await page.waitForTimeout(2000); // තත්පර 2ක් රිසල්ට් එක පෙන්වන්න නතර වේ
+            await page.waitForTimeout(2000); // stop 2sec
             // -----------------------------------------
         });
     }
@@ -76,7 +76,7 @@ test.describe.serial('Swift Translator Suite - Human Readable Speed', () => {
         const inputArea = page.locator('textarea').first();
         const clearBtn = page.locator('button:has-text("Clear")');
         await inputArea.fill('Testing Clear functionality...');
-        await page.waitForTimeout(1000); // බලාගන්න වෙලාවක්
+        await page.waitForTimeout(1000); 
         await clearBtn.click();
         await expect(inputArea).toHaveValue('');
         await page.waitForTimeout(2000);
