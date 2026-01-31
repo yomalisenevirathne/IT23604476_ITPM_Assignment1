@@ -23,7 +23,7 @@ npx playwright install chromium
 
 2. **Run All Tests:**
 Run this command to execute the automation suite:
-npx playwright test
+px playwright test --headed
 
 3. **View Test Report:**
 After the tests are finished, run this to see the results:
